@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{! Document Settings }}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{! Page Meta }}
+    <title>{{meta_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {{! Styles and scripts }}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "fonts/css/all.min.css"}}" />
+    <link href='http://fonts.googleapis.com/css?family=Barlow:100,200,300,400,600|Raleway:400,600' rel='stylesheet' type='text/css'>
+
+    {{! Ghost outputs important style and meta data with this tag }}
+    {{ghost_head}}
+</head>
+<body class="{{body_class}}">
+
+<div id="page" class="site">
+
+    <header id="masthead" class="site-header" role="banner">
+        <div class="header-wrap">
+            <h1 class="site-title"><a href="{{@site.url}}">{{@site.title}}</a></h1>
+            <h2 class="site-description">{{@site.description}}</h2>
+        </div>
+
+        <nav id="site-navigation" class="main-navigation">
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Menu</button>
+            {{navigation}}
+		</nav><!-- #site-navigation -->
+
+        <div class="header-image" {{#if @site.cover_image}} style="background-image: url('{{@site.cover_image}}')"{{/if}}></div><!-- .header-image -->
+    </header><!-- #masthead -->
+
+    <div id="content" class="site-content">
+
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+            {{{body}}}
+        </main><!-- #main -->
+    </div><!-- #primary -->
+
+    <div id="secondary" class="widget-area" role="complementary">
+        {{> external-sidebar}}
+    </div><!-- #secondary -->
+
+    </div><!-- #content -->
+
+    <footer class="site-footer">
+        <div id="social-navigation" class="social-navigation social-links">
+            {{navigation type="secondary"}}
+        </div>
+
+        <div class="site-info">
+            <section class="copyright">Starter by <a href="https://webthemes.io/starter">Web Themes</a> &middot; Published with <a href="https://ghost.org">Ghost</a></section>
+        </div>
+    </footer>
+</div><!-- .site -->
+
+
+{{! The main JavaScript files}}
+<script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous">
+</script>
+<script type="text/javascript" src="{{asset "js/navigation.js"}}"></script>
+
+{{! Ghost outputs important scripts and data with this tag }}
+{{ghost_foot}}
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+<article class="{{post_class}} hentry">
+<div class="entry-meta">
+    <div class="meta-date">{{date format="DD MMM YYYY"}}</div>
+    <div>{{tags prefix="on "}}</div>
+</div>
+
+<div class="content-wrapper">
+    {{! Everything inside the #post tags pulls data from the post }}
+    {{#post}}
+    <header class="entry-header">
+        <h1 class="entry-title">{{{title}}}</h1>
+    </header><!-- .entry-header -->
+
+
+        <div class="entry-content">
+            {{content}}
+        </div>
+
+        <footer class="entry-footer post-footer">
+
+            <section class="author">
+                <h4>{{primary_author.name}}</h4>
+                <p>{{primary_author.bio}}</p>
+            </section>
+
+        </footer>
+
+    {{/post}}
+</div>
+</article>
